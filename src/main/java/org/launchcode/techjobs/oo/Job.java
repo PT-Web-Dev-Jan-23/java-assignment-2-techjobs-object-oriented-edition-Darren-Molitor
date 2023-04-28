@@ -18,7 +18,7 @@ public class Job {
     //  the 'id' field.
 
     public Job() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
     public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
@@ -33,27 +33,49 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public Employer getEmployer() { return employer; }
+    public Employer getEmployer() {
+        return employer;
+    }
 
-    public Location getLocation() { return location; }
+    public Location getLocation() {
+        return location;
+    }
 
-    public PositionType getPositionType() { return positionType; }
+    public PositionType getPositionType() {
+        return positionType;
+    }
 
-    public CoreCompetency getCoreCompetency() { return coreCompetency; }
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setEmployer(Employer employer) { this.employer = employer; }
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
 
-    public void setLocation(Location location) { this.location = location; }
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
-    public void setPositionType(PositionType positionType) { this.positionType = positionType; }
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
 
-    public void setCoreCompetency(CoreCompetency coreCompetency) { this.coreCompetency = coreCompetency; }
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
 
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id field
 //      match.
@@ -67,5 +89,19 @@ public class Job {
     }
 
     @Override
-    public int hashCode() { return Objects.hash(getId()); }
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employer=" + employer +
+                ", location=" + location +
+                ", positionType=" + positionType +
+                ", coreCompetency=" + coreCompetency +
+                '}';
+    }
 }

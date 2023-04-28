@@ -9,7 +9,7 @@ public class Location {
     private String value;
 
     public Location() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 

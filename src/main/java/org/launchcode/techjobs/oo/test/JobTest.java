@@ -1,14 +1,10 @@
 package org.launchcode.techjobs.oo.test;
 
 import org.junit.Assert;
-import org.launchcode.techjobs.oo.Job;
-import org.launchcode.techjobs.oo.Employer;
-import org.launchcode.techjobs.oo.Location;
-import org.launchcode.techjobs.oo.PositionType;
-import org.launchcode.techjobs.oo.CoreCompetency;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.launchcode.techjobs.oo.*;
 
 /**
  * Created by LaunchCode
@@ -46,8 +42,29 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Assert.assertNotEquals(job1.getId(), job2.getId());
+        Assert.assertNotEquals(job1.getId(), job2.getId());    // This should return True which means it is false
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Assert.assertEquals(toString().charAt(0), '\n');
+        Assert.assertEquals(toString().charAt(1), '\n');
+    }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+
+    }
+
+    @Test
+    public String toString(Job jobId) {
+        String returnValue = "\n" +
+                "ID:  " + jobId.getId() + "\n" +
+                "Name: " + jobId.getName() + "\n" +
+                "Employer: " + jobId.getEmployer() + "\n" +
+                "Location: " + jobId.getLocation() + "\n" +
+                "Position Type: " + jobId.getPositionType() + "\n" +
+                "Core Competency: " + jobId.getCoreCompetency() + "\n";
+        return returnValue;
+    }
 }
