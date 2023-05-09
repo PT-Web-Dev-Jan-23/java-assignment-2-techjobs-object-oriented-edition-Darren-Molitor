@@ -2,11 +2,10 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Job {
+public class Job extends JobField {
 
-    private int id;
     private static int nextId = 1;
-
+    private final int id;
     private String name;
     private Employer employer;
     private Location location;
@@ -21,6 +20,7 @@ public class Job {
         this.id = nextId;
         nextId++;
     }
+
     public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
         this();
         this.name = aName;
@@ -38,39 +38,42 @@ public class Job {
     }
 
     public String getName() {
+        if (this.name == "") {
+            this.name = "Data not available";
+        }
         return name;
-    }
-
-    public Employer getEmployer() {
-        return employer;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public PositionType getPositionType() {
-        return positionType;
-    }
-
-    public CoreCompetency getCoreCompetency() {
-        return coreCompetency;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public Employer getEmployer() {
+        return employer;
+    }
+
     public void setEmployer(Employer employer) {
         this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
     }
 
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
     public void setPositionType(PositionType positionType) {
         this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
     }
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
@@ -93,15 +96,16 @@ public class Job {
         return Objects.hash(getId());
     }
 
-    @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
-                '}';
+
+        String returnValue = "\n" +
+                "ID: " + this.getId() + "\n" +
+                "Name: " + this.getName() + "\n" +
+                "Employer: " + this.getEmployer() + "\n" +
+                "Location: " + this.getLocation() + "\n" +
+                "Position Type: " + this.getPositionType() + "\n" +
+                "Core Competency: " + this.getCoreCompetency() + "\n";
+        return returnValue;
     }
+
 }
